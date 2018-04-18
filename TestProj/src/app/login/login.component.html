@@ -1,0 +1,49 @@
+
+<h1>Log In</h1>
+
+<form class="loginForm" (submit)="login()">
+
+	<input class="input" 
+		(input)="error=false" 
+		required
+		placeholder="Enter Username" 
+		[(ngModel)]="username" 
+		#name="ngModel"
+		name="name" 
+		type="text" />
+
+	<div class="error" *ngIf="name.touched && name.errors != null">
+
+		<div *ngIf="name.errors.required">
+			<label>ERROR: Required Field</label>
+		</div>
+
+	</div>
+
+	<input class="input" 
+		(input)="error=false" 
+		required
+		placeholder="Enter Password" 
+		[(ngModel)]="password" 
+		#pass="ngModel"
+		name="password" 
+		type="text" />
+
+	<div class="error" *ngIf="pass.touched && pass.errors != null">
+
+		<div *ngIf="pass.errors.required">
+			<label>ERROR: Required Field</label>
+		</div>
+
+	</div>
+
+	<br />
+
+	<div class="error" *ngIf="error">
+		<label>ERROR: Invalid info</label>
+	</div>
+
+	<button class="submitBtn">Submit</button>
+
+
+</form>
